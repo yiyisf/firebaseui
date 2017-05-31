@@ -1,0 +1,215 @@
+{
+  "project_info": {
+    "project_number": "907694005712",
+    "firebase_url": "https://zgx-sandra.firebaseio.com",
+    "project_id": "zgx-sandra",
+    "storage_bucket": "zgx-sandra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907694005712:android:95486cc8988ed780",
+        "android_client_info": {
+          "package_name": "com.example.zgx.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907694005712-ne88hulhb0m4h7rdoul5d3ebbk0lu74r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zgx.myapplication",
+            "certificate_hash": "8fef8f0a7b1936ae9223f215c04139d72b640ee7"
+          }
+        },
+        {
+          "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotV0oBQBUkbHkYVIpJaSaXUJEY70rx4U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.releaseApp"
+              }
+            },
+            {
+              "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907694005712:android:1fe8eb770f405dc0",
+        "android_client_info": {
+          "package_name": "com.yiyisandra.release_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907694005712-esqd2k2eaidntcoaint7vj5jhmsf8u2v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yiyisandra.release_app",
+            "certificate_hash": "8fef8f0a7b1936ae9223f215c04139d72b640ee7"
+          }
+        },
+        {
+          "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotV0oBQBUkbHkYVIpJaSaXUJEY70rx4U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.releaseApp"
+              }
+            },
+            {
+              "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907694005712:android:99bcd4c0ab354a18",
+        "android_client_info": {
+          "package_name": "com.yourcompany.hello_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907694005712-rdc2mkjbvpbs27f5tat803ntfol173jj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourcompany.hello_example",
+            "certificate_hash": "8fef8f0a7b1936ae9223f215c04139d72b640ee7"
+          }
+        },
+        {
+          "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotV0oBQBUkbHkYVIpJaSaXUJEY70rx4U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.releaseApp"
+              }
+            },
+            {
+              "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907694005712:android:e5aeaf7d28cdcd37",
+        "android_client_info": {
+          "package_name": "com.yourcompany.firebaseui_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907694005712-bj49f11t8rhh530ncc48vmv7051b0517.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourcompany.firebaseui_example",
+            "certificate_hash": "8fef8f0a7b1936ae9223f215c04139d72b640ee7"
+          }
+        },
+        {
+          "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotV0oBQBUkbHkYVIpJaSaXUJEY70rx4U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.releaseApp"
+              }
+            },
+            {
+              "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

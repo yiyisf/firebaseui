@@ -1,0 +1,11 @@
+name: firebaseui
+description: A new flutter plugin project.
+
+flutter:
+  plugin:
+    androidPackage: com.yourcompany.firebaseui
+    pluginClass: FirebaseuiPlugin
+
+dependencies:
+  flutter:
+    sdk: flutter
