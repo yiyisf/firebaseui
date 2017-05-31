@@ -35,6 +35,6 @@ android {
     }
 }
 
-dependencies {
-    provided files('templibs/flutter.jar')
-}
+//dependencies {
+//    provided files('templibs/flutter.jar')
+//}
