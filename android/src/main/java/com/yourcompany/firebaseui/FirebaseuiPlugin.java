@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -20,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -65,9 +68,8 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
       case "getPlatformVersion":
         result.success("Android " + android.os.Build.VERSION.RELEASE);
         break;
-      case "getSignStatus":
-        result.success(firebaseAuth.getCurrentUser()!=null);
-        pendingResult = null;
+      case "getCurrentUser":
+        handleGetCurrentUser(call, result);
         break;
       case "signIn":
         hanleSignin(call, result);
@@ -79,6 +81,45 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
         result.notImplemented();
         break;
     }
+  }
+
+  private ImmutableMap.Builder<String, Object> userInfoToMap(UserInfo userInfo) {
+    ImmutableMap.Builder<String, Object> builder =
+            ImmutableMap.<String, Object>builder()
+                    .put("providerId", userInfo.getProviderId())
+                    .put("uid", userInfo.getUid());
+    if (userInfo.getDisplayName() != null) {
+      builder.put("displayName", userInfo.getDisplayName());
+    }
+    if (userInfo.getPhotoUrl() != null) {
+      builder.put("photoUrl", userInfo.getPhotoUrl().toString());
+    }
+    if (userInfo.getEmail() != null) {
+      builder.put("email", userInfo.getEmail());
+    }
+    return builder;
+  }
+
+  private void handleGetCurrentUser(MethodCall call, final Result result){
+    FirebaseUser user = firebaseAuth.getCurrentUser();
+    if (user!=null){
+      ImmutableList.Builder<ImmutableMap<String, Object>> providerDataBuilder =
+              ImmutableList.<ImmutableMap<String, Object>>builder();
+      for (UserInfo userInfo : user.getProviderData()) {
+        providerDataBuilder.add(userInfoToMap(userInfo).build());
+      }
+      ImmutableMap<String, Object> userMap =
+              userInfoToMap(user)
+                      .put("isAnonymous", user.isAnonymous())
+                      .put("isEmailVerified", user.isEmailVerified())
+                      .put("providerData", providerDataBuilder.build())
+                      .build();
+      result.success(userMap);
+    }else {
+      result.success(null);
+    }
+    pendingResult = null;
+
   }
 
   private void hanleSignout(MethodCall call, final Result result) {

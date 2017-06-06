@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _signedName = 'Unknown';
   bool _status = false;
-
+  FirebaseUser _user;
   @override
   initState() {
     super.initState();
@@ -40,9 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   initPlatformState() async {
     String platformVersion;
-    bool status;
+
     try {
-      status = await Firebaseui.signinstatus;
+      initUser();
     } on PlatformException {
       platformVersion = "Failed to get status";
     }
@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     if (!mounted) return;
 
     setState(() {
-      _status = status;
+      _status = true;
     });
   }
 
@@ -99,5 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
         _status = false;
       });
     }
+  }
+
+  initUser() {
+    setState(()async {_user = await Firebaseui.currentUser;});
   }
 }
