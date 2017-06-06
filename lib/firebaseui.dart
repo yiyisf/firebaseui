@@ -9,7 +9,7 @@ class Firebaseui {
   static Future<String> get platformVersion =>
       _channel.invokeMethod('getPlatformVersion');
 
-  static Future<FirebaseUser> get currentUser =>
+  static Future<UiFirebaseUser> get currentUser =>
       _channel.invokeMethod('getCurrentUser');
 
   static Future<String> get signin =>
@@ -21,9 +21,9 @@ class Firebaseui {
 }
 
 /// Represents user data returned from an identity provider.
-class UserInfo {
+class UiUserInfo {
   final Map<String, dynamic> _data;
-  UserInfo._(this._data);
+  UiUserInfo._(this._data);
 
   /// The provider identifier.
   String get providerId => _data['providerId'];
@@ -47,12 +47,12 @@ class UserInfo {
 }
 
 /// Represents a user.
-class FirebaseUser extends UserInfo {
+class UiFirebaseUser extends UiUserInfo {
   final Map<String, dynamic> _data;
-  final List<UserInfo> providerData;
-  FirebaseUser._(this._data)
+  final List<UiUserInfo> providerData;
+  UiFirebaseUser._(this._data)
       : providerData = (_data['providerData'] as List<Map<String, dynamic>>)
-      .map((Map<String, dynamic> info) => new UserInfo._(info)).toList(),
+      .map((Map<String, dynamic> info) => new UiUserInfo._(info)).toList(),
         super._(_data);
 
   // Returns true if the user is anonymous; that is, the user account was

@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _signedName = 'Unknown';
   bool _status = false;
-  FirebaseUser _user;
+  UiFirebaseUser _user;
   @override
   initState() {
     super.initState();
