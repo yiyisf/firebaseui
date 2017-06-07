@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebaseui/firebaseui.dart';
+
 
 void main() {
   runApp(new MyApp());
@@ -31,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _signedName = 'Unknown';
   bool _status = false;
-  UiFirebaseUser _user;
+  FirebaseUser _user;
   @override
   initState() {
     super.initState();
@@ -101,7 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  initUser() {
-    setState(()async {_user = await Firebaseui.currentUser;});
+  initUser() async {
+    FirebaseUser user = await Firebaseui.currentUser;
+    setState(() {_user = user; });
   }
 }
