@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebaseui/firebaseui.dart';
 
-
 void main() {
   runApp(new MyApp());
 }
@@ -31,9 +30,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   String _signedName = 'Unknown';
   bool _status = false;
-  UiFirebaseUser _user;
+  FirebaseUser _user;
   @override
   initState() {
     super.initState();
@@ -53,8 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     if (!mounted) return;
-
-
   }
 
   @override
@@ -83,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
     if (!_status) {
       String signedName;
       try {
-        signedName = await Firebaseui.signin;
+//        signedName = await Firebaseui.signin;
+        FirebaseUser user = await auth.signInAnonymously();
         setState(() {
           _status = true;
           _signedName = signedName;
@@ -96,19 +96,24 @@ class _MyHomePageState extends State<MyHomePage> {
       }
       return;
     }
-    bool status = await Firebaseui.signout;
-    if (status) {
-      setState(() {
-        _status = false;
-        _user=null;
-        _signedName='UnKnown';
-      });
-    }
+    await auth.signOut();
+    setState(() {
+      _status = false;
+      _user = null;
+      _signedName = 'UnKnown';
+    });
   }
 
   initUser() async {
-    UiFirebaseUser user = await Firebaseui.currentUser;
-    if(user!=null) {
+    FirebaseUser user = auth.currentUser;
+    await Firebaseui.currentUser.then((user){
+      if(user!=null){
+        print(user);
+      }else{
+        print('没取到登录用户');
+      }
+    }, onError: (){});
+    if (user != null) {
       setState(() {
         _user = user;
         _status = true;
