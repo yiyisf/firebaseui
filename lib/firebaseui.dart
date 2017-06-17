@@ -11,6 +11,9 @@ class Firebaseui {
 
   static Future<UiFirebaseUser> get currentUser async {
     Map<String, dynamic> data = await _channel.invokeMethod('getCurrentUser');
+    if(data==null){
+      return null;
+    }
     return new UiFirebaseUser._(data);
   }
 
