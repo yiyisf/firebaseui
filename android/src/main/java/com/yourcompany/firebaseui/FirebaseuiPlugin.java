@@ -91,8 +91,15 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
   private ImmutableMap.Builder<String, Object> userInfoToMap(UserInfo userInfo) {
     ImmutableMap.Builder<String, Object> builder =
             ImmutableMap.<String, Object>builder()
-                    .put("providerId", userInfo.getProviderId())
-                    .put("uid", userInfo.getUid());
+                    .put("providerId", userInfo.getProviderId());
+    if (userInfo.getProviderId().equals("phone")){
+      System.out.println("电话号码user："+ userInfo.getPhoneNumber() +" :" + userInfo.getUid());
+    }
+    
+    if (userInfo.getPhoneNumber() != null) {
+      builder.put("phoneNumber", userInfo.getPhoneNumber());
+    }
+
     if (userInfo.getDisplayName() != null) {
       builder.put("displayName", userInfo.getDisplayName());
     }
