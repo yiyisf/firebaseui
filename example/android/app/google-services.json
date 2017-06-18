@@ -40,15 +40,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.yourcompany.releaseApp"
-              }
-            },
-            {
               "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "907694005712-p1hjucrbc33fst5bt7o9m2m00gkfr3l7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.firebaseuiExample"
+              }
             }
           ]
         },
@@ -91,15 +91,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.yourcompany.releaseApp"
-              }
-            },
-            {
               "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "907694005712-p1hjucrbc33fst5bt7o9m2m00gkfr3l7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.firebaseuiExample"
+              }
             }
           ]
         },
@@ -142,15 +142,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.yourcompany.releaseApp"
-              }
-            },
-            {
               "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "907694005712-p1hjucrbc33fst5bt7o9m2m00gkfr3l7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.firebaseuiExample"
+              }
             }
           ]
         },
@@ -167,6 +167,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "907694005712-csc3hdv5c4pmdhvlveb7nf4q4fkfb6av.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yourcompany.firebaseui_example",
+            "certificate_hash": "b8a5adbe2d99b087e1385991b1fcc8a48786c61a"
+          }
+        },
         {
           "client_id": "907694005712-bj49f11t8rhh530ncc48vmv7051b0517.apps.googleusercontent.com",
           "client_type": 1,
@@ -193,15 +201,66 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "907694005712-6t931optkfhcppqm05jjrn8pb46820p4.apps.googleusercontent.com",
+              "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "907694005712-p1hjucrbc33fst5bt7o9m2m00gkfr3l7.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.yourcompany.releaseApp"
+                "bundle_id": "com.yourcompany.firebaseuiExample"
               }
-            },
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907694005712:android:43aff4f28562ad15",
+        "android_client_info": {
+          "package_name": "yiyisandra.com.release_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907694005712-k883ohl0ljjapn6pc6md3kcs95fdke9p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "yiyisandra.com.release_app",
+            "certificate_hash": "b8a5adbe2d99b087e1385991b1fcc8a48786c61a"
+          }
+        },
+        {
+          "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBotV0oBQBUkbHkYVIpJaSaXUJEY70rx4U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
             {
               "client_id": "907694005712-omp90o571alparcvjk9p1jrn0otagd7s.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "907694005712-p1hjucrbc33fst5bt7o9m2m00gkfr3l7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.firebaseuiExample"
+              }
             }
           ]
         },

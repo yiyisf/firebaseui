@@ -36,6 +36,7 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
   private final FirebaseAuth firebaseAuth;
   private String is;
   private static final int RC_SIGN_IN = 123;
+  private static final int RC_SIGN_INPHONE = 124;
 
   // Pending method call to obtain an image
   private Result pendingResult;
@@ -74,8 +75,12 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
       case "signIn":
         hanleSignin(call, result);
         break;
+      case "signinPhone":
+        hanleSigninPhone(call, result);
+        break;
       case "signOut":
-        hanleSignout(call, result);
+        //hanleSignout(call, result);
+        result.notImplemented();
         break;
       default:
         result.notImplemented();
@@ -122,16 +127,16 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
 
   }
 
-  private void hanleSignout(MethodCall call, final Result result) {
-    AuthUI.getInstance().signOut(activity)
-            .addOnCompleteListener(new OnCompleteListener<Void>() {
-              @Override
-              public void onComplete(@NonNull Task<Void> task) {
-                result.success(true);
-                pendingResult = null;
-              }
-            });
-  }
+//  private void hanleSignout(MethodCall call, final Result result) {
+//    AuthUI.getInstance().signOut(activity)
+//            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//              @Override
+//              public void onComplete(@NonNull Task<Void> task) {
+//                result.success(true);
+//                pendingResult = null;
+//              }
+//            });
+//  }
 
   private void hanleSignin(MethodCall call, Result result) {
     if (firebaseAuth.getCurrentUser() != null){
@@ -144,6 +149,23 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
                       .setProviders(Collections.singletonList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build()))
                       .build(),
               RC_SIGN_IN);
+    }
+  }
+
+  private void hanleSigninPhone(MethodCall call, Result result) {
+    if (firebaseAuth.getCurrentUser() != null){
+      System.out.println(firebaseAuth.getCurrentUser().getPhoneNumber());
+      result.success(firebaseAuth.getCurrentUser().getPhoneNumber());
+      pendingResult=null;
+    }else {
+      activity.startActivityForResult(
+                          AuthUI.getInstance()
+                                  .createSignInIntentBuilder()
+                                  .setAvailableProviders(
+                                          Collections.singletonList(new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVIDER).build()))
+//                                  .setIsSmartLockEnabled(!BuildConfig.DEBUG)
+                                  .build(),
+              RC_SIGN_INPHONE);
     }
   }
 
@@ -180,6 +202,37 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
         }
       }
     }
+    if (requestCode == RC_SIGN_INPHONE) {
+          IdpResponse response = IdpResponse.fromResultIntent(data);
+
+          // Successfully signed in
+          if (resultCode == ResultCodes.OK) {
+            pendingResult.success(firebaseAuth.getCurrentUser().getPhoneNumber());
+    //        pendingResult.success(response);
+            pendingResult = null;
+            return true;
+          } else {
+            // Sign in failed
+            if (response == null) {
+              // User pressed back button
+              pendingResult.error("登录","登录失败",null);
+              pendingResult = null;
+              return true;
+            }
+
+            if (response.getErrorCode() == ErrorCodes.NO_NETWORK) {
+              pendingResult.error("登录","网络错误",null);
+              pendingResult = null;
+              return true;
+            }
+
+            if (response.getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
+              pendingResult.error("登录","未知错误",null);
+              pendingResult = null;
+              return true;
+            }
+          }
+        }
     return false;
   }
 }

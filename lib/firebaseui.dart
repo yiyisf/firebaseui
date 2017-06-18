@@ -17,10 +17,11 @@ class Firebaseui {
     return new UiFirebaseUser._(data);
   }
 
-  static Future<UiFirebaseUser> get signinPhone async {
-    Map<String, dynamic> data = await _channel.invokeMethod('signinPhone');
-    return new UiFirebaseUser._(data);
-  }
+//  static Future<UiFirebaseUser> get signinPhone async {
+//    Map<String, dynamic> data = await _channel.invokeMethod('signinPhone');
+//    return new UiFirebaseUser._(data);
+//  }
+  static Future<String> get signinPhone => _channel.invokeMethod('signinPhone');
 
   static Future<String> get signin => _channel.invokeMethod('signIn');
 
