@@ -96,10 +96,6 @@ public class FirebaseuiPlugin implements MethodCallHandler, PluginRegistry.Activ
       System.out.println("电话号码user："+ userInfo.getPhoneNumber() +" :" + userInfo.getUid());
     }
 
-    if (userInfo.getUid() != null) {
-      builder.put("uid", userInfo.getUid());
-    }
-
     if (userInfo.getPhoneNumber() != null) {
       builder.put("phoneNumber", userInfo.getPhoneNumber());
     }
